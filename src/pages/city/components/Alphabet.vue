@@ -5,8 +5,8 @@
       v-for="item of letters"
       :key="item"
       :ref="item"
-      @touchstart.prevent="handleTouchStart"
-      @touchmove="handleTouchMove"
+      @touchstart="handleTouchStart"
+      @touchmove.prevent="handleTouchMove"
       @touchend="handleTouchEnd"
       @click="handleLetterClick"
     >
@@ -48,6 +48,7 @@ export default {
       this.touchStatus = true
     },
     handleTouchMove (e) {
+      console.log(e)
       if (this.touchStatus) {
         if (this.timer) {
           clearTimeout(this.timer)
